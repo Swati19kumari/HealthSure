@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/HealthSure</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Optional debugging -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+       <property name="hibernate.hbm2ddl.auto">update</property>
+       <!-- Disable JPA validation integration -->
+     <property name="javax.persistence.validation.mode">none</property> 
+ 
+
+        <!-- Mapping Files -->
+        <mapping resource="com/infinite/jsf/recepient/mapping/Recipient.hbm.xml"/>
+        <mapping resource="com/infinite/jsf/provider/mapping/MedicalProcedure.hbm.xml"/>
+        <mapping resource="com/infinite/jsf/provider/mapping/Providers.hbm.xml"/>
+        <mapping resource="com/infinite/jsf/provider/mapping/Doctors.hbm.xml"/>
+        <mapping resource="com/infinite/jsf/provider/mapping/Prescription.hbm.xml"/> <!-- Check if spelling fixed -->
+        <mapping resource="com/infinite/jsf/provider/mapping/ProcedureTest.hbm.xml"/>
+        <mapping resource="com/infinite/jsf/provider/mapping/PrescribedMedicine.hbm.xml"/>
+        <mapping resource="com/infinite/jsf/provider/mapping/Appointment.hbm.xml"/>
+        <mapping resource="com/infinite/jsf/provider/mapping/DoctorAvailability.hbm.xml"/> <!-- Check if spelling fixed -->
+       <mapping resource="com/infinite/jsf/provider/mapping/Claims.hbm.xml"/> 
+        <mapping resource="com/infinite/jsf/provider/mapping/ClaimHistory.hbm.xml"/>  
+        <mapping resource="com/infinite/jsf/insurance/mapping/Subscribe.hbm.xml"/>
+        <mapping resource="com/infinite/jsf/insurance/mapping/SubscribedMember.hbm.xml"/>
+        <mapping resource="com/infinite/jsf/insurance/mapping/InsurancePlan.hbm.xml"/>
+        <mapping resource="com/infinite/jsf/insurance/mapping/InsuranceCoverageOption.hbm.xml"/>
+        <mapping resource="com/infinite/jsf/insurance/mapping/InsuranceCompany.hbm.xml"/>
+        
+    </session-factory>
+</hibernate-configuration>

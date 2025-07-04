@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.infinite.jsf.provider.model.ClaimHistory" table="claim_history">
+
+        <!-- Primary Key -->
+        <id name="claimHistoryId" column="claim_history_id" type="string">
+            <generator class="assigned"/>
+        </id>
+
+        <!-- Many-to-one: Each ClaimHistory belongs to one Claim -->
+        <many-to-one name="claim" class="com.infinite.jsf.provider.model.Claims"
+                     column="claim_id" not-null="true" fetch="join"/>
+
+        <!-- Description (Simple Text Field) -->
+        <property name="description" column="description" type="string"/>
+
+        <!-- Action Date -->
+        <property name="actionDate" column="action_date" type="timestamp"/>
+        
+    </class>
+</hibernate-mapping>

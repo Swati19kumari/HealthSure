@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+	<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	 
+	<hibernate-mapping>
+	    <class name="com.java.jsf.recipient.model.Otp" table="otp">
+	        <id name="otpId" type="int">
+	            <column name="otp_id"/>
+	            <generator class="increment"/>
+	        </id>
+	 
+	 
+	        <property name="userName" type="java.lang.String">
+	            <column name="user_name"/>
+	        </property>
+	 
+	        <property name="otpCode" type="int">
+	            <column name="otp_code"/>
+	        </property>
+	 
+	        <property name="newPassword" type="java.lang.String">
+	            <column name="new_password"/>
+	        </property>
+	 
+	        <property name="status">
+	            <column name="status" />
+	            <type name="org.hibernate.type.EnumType">
+	            <param name="enumClass">com.java.jsf.recipient.model.OtpStatus</param>
+	            <param name="type">12</param>
+	            
+	            </type>
+	        </property>
+	        
+	        <property name="createdAt" type="timestamp">
+	            <column name="created_at"/>
+	        </property>
+	 
+	        <property name="expiresAt" type="timestamp">
+	            <column name="expires_at"/>
+	        </property>
+	        
+	 
+	        <property name="purpose">
+	            <column name="purpose" />
+	            <type name="org.hibernate.type.EnumType">
+	            <param name="enumClass">com.java.jsf.recipient.model.Purpose</param>
+	            <param name="type">12</param>
+	            
+	            </type>
+	        </property>
+	    </class>
+	</hibernate-mapping>

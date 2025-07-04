@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee /WEB-INF/schema/web-facesconfig_2_0.xsd" 
+              version="2.0" metadata-complete="false">
+
+    <!-- ========== New Beans for Recipient Visit History ========== -->
+
+    <!-- MedicalProcedureDao bean -->
+    <managed-bean>
+        <managed-bean-name>medicalProcedureDao</managed-bean-name>
+        <managed-bean-class>com.infinite.jsf.recepient.daoImpl.MedicalProcedureDaoImpl</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <!-- MedicalProcedure model bean -->
+    <managed-bean>
+        <managed-bean-name>medicalProcedure</managed-bean-name>
+        <managed-bean-class>com.infinite.jsf.provider.model.MedicalProcedure</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+     <!-- Claim model bean -->
+     <managed-bean>
+        <managed-bean-name>claim</managed-bean-name>
+        <managed-bean-class>com.infinite.jsf.provider.model.Claims</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+     
+      <!-- ClaimDao bean -->
+    <managed-bean>
+        <managed-bean-name>claimDao</managed-bean-name>
+        <managed-bean-class>com.infinite.jsf.recepient.daoImpl.ClaimDaoImpl</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+
+    <!-- Recipient model bean -->
+    <managed-bean>
+        <managed-bean-name>recipient</managed-bean-name>
+        <managed-bean-class>com.infinite.jsf.recepient.model.Recipient</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <!-- RecepientController bean with managed-property injection -->
+    <managed-bean>
+        <managed-bean-name>recepientController</managed-bean-name>
+        <managed-bean-class>com.infinite.jsf.recepient.controller.RecepientController</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+
+        <managed-property>
+            <property-name>medicalProcedureDao</property-name>
+            <property-class>com.infinite.jsf.recepient.dao.MedicalProcedureDao</property-class>
+            <value>#{medicalProcedureDao}</value>
+        </managed-property>
+
+        <managed-property>
+            <property-name>medicalProcedure</property-name>
+            <property-class>com.infinite.jsf.provider.model.MedicalProcedure</property-class>
+            <value>#{medicalProcedure}</value>
+        </managed-property>
+
+        <managed-property>
+            <property-name>recipient</property-name>
+            <property-class>com.infinite.jsf.recepient.model.Recipient</property-class>
+            <value>#{recipient}</value>
+        </managed-property>
+    </managed-bean>
+    
+      
+
+    <!-- ClaimController bean with managed property injection -->
+    <managed-bean>
+        <managed-bean-name>claimController</managed-bean-name>
+        <managed-bean-class>com.infinite.jsf.recepient.controller.ClaimController</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+
+        <!-- Inject ClaimDao -->
+        <managed-property>
+            <property-name>claimDao</property-name>
+            <property-class>com.infinite.jsf.recepient.daoImpl.ClaimDaoImpl</property-class>
+            <value>#{claimDao}</value>
+        </managed-property>
+
+        <!-- Inject Claim -->
+        <managed-property>
+            <property-name>claim</property-name>
+            <property-class>com.infinite.jsf.provider.model.Claims</property-class>
+            <value>#{claim}</value>
+        </managed-property>
+
+        <!-- Inject Recipient -->
+        <managed-property>
+            <property-name>recipient</property-name>
+            <property-class>com.infinite.jsf.recepient.model.Recipient</property-class>
+            <value>#{recipient}</value>
+        </managed-property>
+    </managed-bean>
+ 
+</faces-config>
+
+
